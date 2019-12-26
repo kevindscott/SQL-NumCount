@@ -1,0 +1,17 @@
+DECLARE @TestNumber varchar(20) = '1243', @Count int = 3, @resultHold varchar(20);
+
+WHILE( @Count > 0)
+BEGIN
+	if(@resultHold != '')
+	BEGIN
+		SET @TestNumber = @resultHold
+	END
+
+	declare @TempRe table(val varchar(20));
+
+	insert into @TempRe
+	exec @resultHold = numberTest @TestNumber
+	
+	select @resultHold = val from @TempRe
+	select @resultHold
+	SET @Cou
